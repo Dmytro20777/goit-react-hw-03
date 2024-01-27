@@ -1,48 +1,48 @@
-// import { useState } from "react";
-// import { SearchPerson } from "./SearchPeson/SearchPeson";
-// import { ListPersons } from "./ListPersons/ListPersons";
-// import { AddPerson } from "./AddPerson/AddPerson";
+import { useState } from "react";
+import { SearchPerson } from "./SearchPeson/SearchPeson";
+import { ListPersons } from "./ListPersons/ListPersons";
+import { AddPerson } from "./AddPerson/AddPerson";
 
-// export const App = () => {
-//   const [inputValue, setInputValue] = useState("");
-//   const [persons, setPersons] = useState([
-//     { username: "Apolon", id: 1 },
-//     { username: "Anna", id: 2 },
-//     { username: "Saske", id: 3 },
-//     { username: "Fanny", id: 4 },
-//     { username: "Ramona", id: 5 },
-//     { username: "Dimitresku", id: 6 },
-//     { username: "Alex", id: 7 },
-//     { username: "Hans", id: 8 },
-//     { username: "Friedrich", id: 9 },
-//     { username: "Saasch", id: 10 },
-//   ]);
+export const App = () => {
+  const [inputValue, setInputValue] = useState("");
+  const [persons, setPersons] = useState([
+    { username: "Apolon", id: 1 },
+    { username: "Anna", id: 2 },
+    { username: "Saske", id: 3 },
+    { username: "Fanny", id: 4 },
+    { username: "Ramona", id: 5 },
+    { username: "Dimitresku", id: 6 },
+    { username: "Alex", id: 7 },
+    { username: "Hans", id: 8 },
+    { username: "Friedrich", id: 9 },
+    { username: "Saasch", id: 10 },
+  ]);
 
-//   const visiblePerson = persons.filter((person) => person.username.toLowerCase().includes(inputValue.toLowerCase()));
+  const visiblePerson = persons.filter((person) => person.username.toLowerCase().includes(inputValue.toLowerCase()));
 
-//   const deletePerson = (personId) => {
-//     setPersons((prevPersons) => {
-//       return prevPersons.filter((person) => person.id !== personId)
-//     });
-//   };
+  const deletePerson = (personId) => {
+    setPersons((prevPersons) => {
+      return prevPersons.filter((person) => person.id !== personId)
+    });
+  };
 
-//   const personAdd = (newPerson) => {
-//     setPersons((preventPersons) => {
-//       return [...preventPersons, {
-//         username: newPerson,
-//         id: Date.now()
-//       }]
-//     })
-//   }
+  const personAdd = (newPerson) => {
+    setPersons((preventPersons) => {
+      return [...preventPersons, {
+        username: newPerson,
+        id: Date.now()
+      }]
+    })
+  }
 
-//   return (
-//     <>
-//       <SearchPerson value={inputValue} onChange={setInputValue} />
-//       <AddPerson onAdd={ personAdd } />
-//       <ListPersons items={visiblePerson} onDelete={deletePerson} />
-//     </>
-//   )
-// }
+  return (
+    <>
+      <SearchPerson value={inputValue} onChange={setInputValue} />
+      <AddPerson onAdd={ personAdd } />
+      <ListPersons items={visiblePerson} onDelete={deletePerson} />
+    </>
+  )
+}
 
 
 
