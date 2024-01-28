@@ -1,65 +1,48 @@
-import { Formik, Form, Field, ErrorMessage  } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import css from "./ContactForm.module.css";
-import { useState } from "react";
 import * as Yup from "yup";
 import { useId } from "react";
+import { IoPersonAdd } from "react-icons/io5";
 
 const FeedbackSchema = Yup.object().shape({
   addUser: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
   addNumber: Yup.string().min(3, "Too short").max(50, "Too long").required("Required"),
 });
 
-const initialValues = {
-  addUser: "",
-  addNumber: ""
-};
-
-
 export const ContactForm = ({ addNewUser }) => {
     const nameFieldId = useId();
-    const nummberlFieldId = useId();
+    const numberFieldId = useId();
 
-    const [newUser, setNewUser] = useState("");
-    const [newNumber, setNewNumber] = useState("");
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        addNewUser(newUser, newNumber);
-        setNewUser("");
-        setNewNumber("");
+    const handleSubmit = (values, actions) => {
+        addNewUser(values.addUser, values.addNumber);
+        actions.resetForm();
     };
-
 
     return (
         <div className={css.container}>
-            <Formik initialValues={initialValues} onSubmit={() => {}} validationSchema={FeedbackSchema} >
-                <Form onSubmit={handleSubmit}>
-                    <label htmlFor={nameFieldId}>Name
+            <Formik initialValues={{ addUser: "", addNumber: "" }} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
+                <Form className={css.fieldContainer}>
+                    <label className={css.label} htmlFor={nameFieldId}>Name
                         <Field
+                            className={css.field}
                             type="text"
                             name="addUser"
-                            placeholder="name"
-                            value={newUser}
-                            onChange={(event) => setNewUser(event.target.value)}
+                            placeholder="Name"
                             id={nameFieldId}
                         />
-                        <ErrorMessage
-                            name="addUser" component="span"
-                            className={css.error}/>
+                        <ErrorMessage name="addUser" component="span" className={css.error} />
                     </label>
-                    <label htmlFor={nummberlFieldId}>Number
+                    <label className={css.label} htmlFor={numberFieldId}>Number
                         <Field
+                            className={css.field}
                             type="text"
                             name="addNumber"
                             placeholder="Number"
-                            value={newNumber}
-                            onChange={(event) => setNewNumber(event.target.value)}
-                            id={nummberlFieldId}
+                            id={numberFieldId}
                         />
-                        <ErrorMessage name="addNumber" component="span"
-                        className={css.error}/>
+                        <ErrorMessage name="addNumber" component="span" className={css.error} />
                     </label>
-                    <button type="submit">Add contact</button>
+                    <button className={css.btn} type="submit">Add contact <IoPersonAdd className={css.addPerson} /></button>
                 </Form>
             </Formik>
         </div>

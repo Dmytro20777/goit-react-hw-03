@@ -47,8 +47,8 @@ export const App = () => {
   };
 
   return (
-    <div>
-      <h1>Phonebook</h1>
+    <div style={{ maxWidth: "1400px", margin: "0 auto"}}>
+      <h1 style={{ textAlign: 'center' }}>Phonebook</h1>
       <ContactForm addNewUser={addNewUser} />
       <SearchBox value={inputValue} onChange={setInputValue} />
       <ContactList items={visibleUser} onDelete={deleteUser} />

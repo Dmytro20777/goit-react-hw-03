@@ -1,11 +1,13 @@
 import { useId } from "react";
+import css from "./SearchBox.module.css";
 
 export const SearchBox = ({value, onChange}) => {
     const labelId = useId();
     return (
-        <div>
-            <label htmlFor={labelId}>Find contacts by name
+        <div className={css.container}>
+            <label className={css.label} htmlFor={labelId}>Find contacts by name
                 <input
+                    className={css.input}
                     type="text"
                     name="username"
                     id={labelId}

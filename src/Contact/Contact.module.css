@@ -1,20 +1,58 @@
 .item {
-    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
     margin-bottom: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 200px;
+}
+
+
+.item:hover {
+    background-color: #a0bc7e;
 }
 
 .title {
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #333;
+    display: flex;
+    align-items: center;
 
+}
+
+.iconPerson {
+    display: flex;
+    align-items: center;
+    margin-right: 7px;
 }
 
 .discription {
+    font-size: 14px;
+    color: #0c0c0c;
+}
 
+.iconPhone {
+    margin-right: 7px;
 }
 
 .btn {
-    
+    padding: 8px 12px;
+    background-color: #e32f0f;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;   
+}
+
+.btn:hover {
+    background-color: #731a08;
 }
